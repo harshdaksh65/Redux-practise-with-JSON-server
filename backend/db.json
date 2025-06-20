@@ -1,0 +1,29 @@
+{
+  "product": [
+    {
+      "id": "VL9erz0-bPJhzaB3f-RVU",
+      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "price": "109",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "description": "DescriptiYour perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everydayon",
+      "category": "men's clothing"
+    }
+  ],
+  "user": [
+    {
+      "id": "mbqxaFyN8p8tTr36p7TNe",
+      "username": "harshdaksh49",
+      "email": "harsh@daksh.com",
+      "password": "123456",
+      "isAdmin": true
+    },
+    {
+      "id": "FmAjcHMqCJBRyuvRCcylK",
+      "username": "random",
+      "email": "ramdon@gmail.com",
+      "password": "123456",
+      "isAdmin": false
+    }
+  ],
+  "carts": []
+}
