@@ -23,7 +23,7 @@ function CreateProduct() {
           <input {...register("title")} type="text" placeholder="Title" />
           <input {...register("price")} type="number"  placeholder="Price" />
           <input {...register("image")} type="url"placeholder="img URL" />
-          <textarea {...register("description")} >Description</textarea>
+          <textarea {...register("description")} placeholder="Description"></textarea>
           <input {...register("category")} type="text" placeholder="Category"/>
           <button className="bg-blue-300 rounded font-semibold hover:scale-[0.97]">Create</button>
           

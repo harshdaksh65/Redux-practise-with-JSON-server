@@ -11,6 +11,7 @@ function Register() {
   const registerSubmit = (user)=>{
     user.id = nanoid();
     user.isAdmin = false;
+    user.cart = [];
     dispatch(asyncUsers(user));
     navigate('/login')
     reset();

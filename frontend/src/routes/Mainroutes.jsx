@@ -6,6 +6,7 @@ import Register from '../pages/Register'
 import CreateProduct from '../pages/admin/CreateProduct'
 import UpdateProduct from '../pages/admin/UpdateProduct'
 import ProductDetails from '../pages/user/ProductDetails'
+import Cart from '../pages/Cart'
 function Mainroutes() {
   return (
     <Routes>
@@ -15,6 +16,7 @@ function Mainroutes() {
        <Route path='/admin/create-products' element={<CreateProduct/>}/>
        <Route path='/admin/update-products/:id' element={<UpdateProduct/>}/>
        <Route path='/login' element={<Login/>}/>
+       <Route path='/cart' element={<Cart/>}/>
        <Route path='/register' element={<Register/>}/>
     </Routes>
   )

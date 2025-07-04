@@ -12,7 +12,7 @@ function App() {
     dispatch(aysncloadproduct());
   },[])
   return (
-    <div className='overflow-auto w-screen h-screen bg-zinc-600 text-white px-[5%]'>
+    <div className='overflow-auto w-screen h-screen px-[5%]'>
       <Nav/>
       <Mainroutes/>
     </div>

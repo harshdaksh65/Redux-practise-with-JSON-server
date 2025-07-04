@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { aysncupdateproduct,aysncdeleteproduct } from "../../store/ProductActions";
+import { ayncsUpdateuser } from "../../store/UserActions";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -34,21 +35,40 @@ function ProductDetails() {
     dispatch(aysncupdateproduct(product,id))
   }
 
+  const Addtocarthandle = (product) => {
+    if (!users) {
+      alert("Please login to add items to cart");
+      navigate("/login");
+      return;
+    }
+    const copyuser = { ...users, cart: [...users.cart] };
+    const index = copyuser.cart.findIndex((c) => c?.product?.id == product.id);
+    if (index == -1) {
+      copyuser.cart.push({ product, quantity: 1 });
+    } else {
+      copyuser.cart[index] = {
+        product,
+        quantity: copyuser.cart[index].quantity + 1,
+      };
+    }
+    dispatch(ayncsUpdateuser(copyuser.id, copyuser));
+  }
+
   return product ? (
     <>
     <div className="flex ">
-      <div className="w-1/2">
+      <div className="w-1/2 flex justify-center items-center">
         <img
-          className="border rounded h-[80vh] object-contain"
+          className="rounded h-[80vh] object-contain"
           src={product.image}
           alt=""
         />
       </div>
-      <div className="w-1/2 content-center">
-        <h1 className="font-thin text-5xl">{product.title}</h1>
-        <h2 className="mb-5 text-2xl text-green-400">${product.price}</h2>
+      <div className="w-1/2 flex flex-col justify-center items-start p-10">
+        <h1 className="text-5xl mb-2">{product.title}</h1>
+        <h2 className="mb-5 text-2xl text-green-500">${product.price}</h2>
         <p className="mb-5 ">{product.description}</p>
-        <button>Add to cart</button>
+        <button className="bg-yellow-500 font-bold text-white rounded-full px-4 py-2 hover:shadow-xl hover:scale(0.97) transition ease-out" onClick={() => Addtocarthandle(product)}>Add to cart</button>
       </div>
     </div>
     <hr className="m-8"/>
@@ -75,8 +95,8 @@ function ProductDetails() {
         />
         <textarea
           className="outline-none border-b text-xl m-2"
-          {...register("description")}>
-          Description
+          {...register("description") } placeholder="Description">
+          
         </textarea>
         <input
           className="outline-none border-b text-xl m-2"
