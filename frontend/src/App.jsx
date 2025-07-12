@@ -20,7 +20,7 @@ function App() {
       <Mainroutes/>
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1800}
         hideProgressBar={false}
         newestOnTop={true}
         pauseOnFocusLoss

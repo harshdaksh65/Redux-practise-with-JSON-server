@@ -19,7 +19,7 @@ function Products() {
       console.log("Toast should show now");
       setTimeout(() => {
       navigate("/login");
-    }, 2000); 
+    }, 2400); 
       return;
     }
     const copyuser = { ...users, cart: [...users.cart] };

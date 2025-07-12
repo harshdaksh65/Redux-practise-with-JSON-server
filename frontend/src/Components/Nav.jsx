@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asynclogoutuser } from "../store/UserActions";
 import carticon from "../Cart.svg";
 import usericon from "../user.svg";
+import Elogo from "../../public/E-Logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Nav() {
@@ -34,11 +35,11 @@ function Nav() {
 
   return (
     <>
-      <nav className="w-full sticky top-4 h-12 flex items-center font-semibold mb-10 bg-[var(--sec)] text-black px-4 shadow-md rounded-full mt-4 z-50">
-        <div className="w-32 flex items-center">
-          Cartora {" "}
+      <nav className="w-full font-MyFont sticky top-4 h-12 flex items-center font-semibold mb-10 bg-[var(--sec)] text-black px-4 shadow-md rounded-full mt-4 z-50">
+        <div className="flex items-center font-title text-xl">
+          <img src={Elogo} width={44} alt="Shopilo Logo" />{" "}
           {isLoggedIn && user?.isAdmin && (
-            <div className="text-red-500 ml-1 -mt-2 font-bold text-[10px]">ADMIN</div>
+            <div className="text-red-500 -mt-6 font-bold text-[8px]">ADMIN</div>
           )}
         </div>
 
