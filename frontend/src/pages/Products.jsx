@@ -48,7 +48,7 @@ function Products() {
           />
           <h1 className="font-semibold mt-4">{product.title.slice(0,70)}</h1>
         </Link>
-        <div className="flex justify-between items-center mt-4 ">
+        <div className="flex justify-between items-center ">
           <h1 className="font-semibold text-[var(--tri)]">${product.price}</h1>
           <button
             className="bg-[var(--pri)] font-bold text-white rounded-full px-4 py-2 hover:shadow-xl hover:scale(0.97) transition ease-out"
