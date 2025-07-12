@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@import 'react-toastify/dist/ReactToastify.css';
+
+:root{
+    --pri: #33CC99;
+    --sec: #ffca99;
+    --tri: #45484C;
+}

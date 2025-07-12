@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { aysncupdateproduct,aysncdeleteproduct } from "../../store/ProductActions";
 import { ayncsUpdateuser } from "../../store/UserActions";
+import { toast } from "react-toastify";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -37,7 +38,7 @@ function ProductDetails() {
 
   const Addtocarthandle = (product) => {
     if (!users) {
-      alert("Please login to add items to cart");
+      toast.info("Please login to add items to cart");
       navigate("/login");
       return;
     }
@@ -56,22 +57,23 @@ function ProductDetails() {
 
   return product ? (
     <>
-    <div className="flex ">
-      <div className="w-1/2 flex justify-center items-center">
+    <div className="flex flex-col md:flex-row w-full justify-between items-center mt-10">
+      <div className="md:w-1/2 flex justify-center items-center">
         <img
-          className="rounded h-[80vh] object-contain"
+          className="rounded h-[50vh] md:h-[80vh] object-contain rounded-4xl"
           src={product.image}
           alt=""
         />
       </div>
-      <div className="w-1/2 flex flex-col justify-center items-start p-10">
-        <h1 className="text-5xl mb-2">{product.title}</h1>
-        <h2 className="mb-5 text-2xl text-green-500">${product.price}</h2>
+      <div className="md:w-1/2 flex flex-col justify-center items-start p-10">
+        <h1 className="text-3xl font-semibold md:text-5xl mb-2">{product.title}</h1>
+        <h2 className="mb-5 text-2xl text-[var(--tri)]">${product.price}</h2>
         <p className="mb-5 ">{product.description}</p>
-        <button className="bg-yellow-500 font-bold text-white rounded-full px-4 py-2 hover:shadow-xl hover:scale(0.97) transition ease-out" onClick={() => Addtocarthandle(product)}>Add to cart</button>
+        <button className="bg-[var(--pri)] font-bold text-white rounded-full px-4 py-2 hover:shadow-xl hover:scale(0.97) transition ease-out" onClick={() => Addtocarthandle(product)}>Add to cart</button>
       </div>
     </div>
-    <hr className="m-8"/>
+    {users && users?.isAdmin && (<hr className="m-8"/>)}
+    
     {users && users?.isAdmin && (<form
         onSubmit={handleSubmit(updatehandler)}
         className="w-96 flex flex-col border rounded bg-white text-black p-8 gap-y-4 mb-10">
